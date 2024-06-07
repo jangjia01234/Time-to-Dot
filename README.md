@@ -59,5 +59,13 @@ This App is a step towards inclusivity, offering a practical solution for those 
 
 ---
 
+## 🛠️ Update Log
+
+- 24.06.08: Responsive UI is adjusted! Now you can use it both on any iPad and iPhone device.
+
+<br>
+
+---
+
 🍀 Anyone can check out my profile on [Linkedin](https://www.linkedin.com/in/jiajang/) <br>
 ✉️ For any questions or feedback, feel free to contact me at jangjia01234@gmail.com.

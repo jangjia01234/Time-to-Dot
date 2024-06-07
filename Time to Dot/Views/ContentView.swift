@@ -36,11 +36,11 @@ struct ContentView: View {
                     if clockData.isAlarmOn {
                         AddTimeButton()
                             .frame(width: geometry.size.width/10)
-                            .padding(.trailing, 20)
+                            .padding(.trailing, geometry.size.width > 800 ? 10 : 0)
                     }
                     
                     AlarmButton()
-                        .frame(width: geometry.size.width/6)
+                        .frame(width: geometry.size.width > 800 ? geometry.size.width/6 : geometry.size.width/7.5)
                 }
                 .padding(.horizontal, 40)
                 .frame(width: geometry.size.width, height: geometry.size.height/6)

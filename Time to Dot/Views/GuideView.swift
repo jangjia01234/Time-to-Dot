@@ -5,63 +5,79 @@ struct GuideView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            VStack {
-                // MARK: Title
-                Text(guideTextList[0])
-                    .font(.system(size: 44))
-                    .fontWeight(.bold)
-                    .padding(.bottom, 50)
-                
-                VStack(alignment: .leading) {
-                    // MARK: Onboarding
-                    VStack(alignment: .leading) {
-                        Text(guideTextList[1])
-                            .padding(.bottom, 2)
-                            .fontWeight(.bold)
-                        
-                        Text(guideTextList[2])
-                        Text(guideTextList[3])
-                    }
-                    .padding(.bottom, 20)
+            ScrollView {
+                VStack {
+                    // MARK: Title
+                    Text(guideTextList[0])
+                        .font(geometry.size.width > 800 ? .largeTitle : .title2)
+                        .fontWeight(.bold)
+                        .accessibilityLabel(guideTextList[0])
                     
-                    // MARK: 1. Braille clock
-                    VStack(alignment: .leading) {
-                        Text(guideTextList[4])
-                            .font(.title)
-                            .fontWeight(.semibold)
-                            .padding(.bottom, 5)
+                    VStack(alignment: .leading, spacing: 16) {
+                        // MARK: Onboarding
+                        VStack(alignment: .leading) {
+                            Text(guideTextList[1])
+                                .font(geometry.size.width > 800 ? .title : .body)
+                                .fontWeight(.bold)
+                                .accessibilityLabel(guideTextList[1])
+                            
+                            Text(guideTextList[2])
+                                .font(geometry.size.width > 800 ? .title2 : .body)
+                                .accessibilityLabel(guideTextList[2])
+                            Text(guideTextList[3])
+                                .font(geometry.size.width > 800 ? .title2 : .body)
+                                .accessibilityLabel(guideTextList[3])
+                        }
                         
-                        Text(guideTextList[5])
-                        Text(guideTextList[6])
-                            .padding(.bottom, 20)
+                        // MARK: 1. Braille clock
+                        VStack(alignment: .leading) {
+                            Text(guideTextList[4])
+                                .font(geometry.size.width > 800 ? .title : .body)
+                                .fontWeight(.semibold)
+                                .accessibilityLabel(guideTextList[4])
+                            
+                            Text(guideTextList[5])
+                                .font(geometry.size.width > 800 ? .title2 : .body)
+                                .accessibilityLabel(guideTextList[5])
+                            Text(guideTextList[6])
+                                .font(geometry.size.width > 800 ? .title2 : .body)
+                                .accessibilityLabel(guideTextList[6])
+                        }
+                        
+                        // MARK: 2. Easy alarm
+                        VStack(alignment: .leading) {
+                            Text(guideTextList[7])
+                                .font(geometry.size.width > 800 ? .title : .body)
+                                .fontWeight(.semibold)
+                                .accessibilityLabel(guideTextList[7])
+                            
+                            Text(guideTextList[8])
+                                .font(geometry.size.width > 800 ? .title2 : .body)
+                                .accessibilityLabel(guideTextList[8])
+                            
+                            Text(guideTextList[9])
+                                .font(geometry.size.width > 800 ? .title2 : .body)
+                                .accessibilityLabel(guideTextList[9])
+                            Text(guideTextList[10])
+                                .font(geometry.size.width > 800 ? .title2 : .body)
+                                .accessibilityLabel(guideTextList[10])
+                            Text(guideTextList[11])
+                                .font(geometry.size.width > 800 ? .title2 : .body)
+                                .accessibilityLabel(guideTextList[11])
+                        }
                     }
-                    
-                    // MARK: 2. Easy alarm
-                    VStack(alignment: .leading) {
-                        Text(guideTextList[7])
-                            .font(.title)
-                            .fontWeight(.semibold)
-                            .padding(.bottom, 5)
-                        
-                        Text(guideTextList[8])
-                            .padding(.bottom, 5)
-                        
-                        Text(guideTextList[9])
-                        Text(guideTextList[10])
-                        Text(guideTextList[11])
-                    }
+                    .padding(.horizontal, 20)
+                    .accessibilityElement(children: .combine)
                 }
+                .padding(.vertical, 20)
+                .padding(.horizontal, 40)
+                .foregroundColor(.black)
+                .background(Color("guideBgColor"))
             }
-            .frame(width: geometry.size.width, height: geometry.size.height)
-            .font(.system(size: 24))
         }
-        .padding(.horizontal, 50)
-        .foregroundColor(.black)
-        .background(Color("guideBgColor"))
     }
 }
 
 #Preview {
     GuideView()
 }
-

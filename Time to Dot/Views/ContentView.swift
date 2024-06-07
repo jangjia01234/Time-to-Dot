@@ -1,24 +1,75 @@
-//
-//  ContentView.swift
-//  Time to Dot
-//
-//  Created by Jia Jang on 6/7/24.
-//
-
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var clockData: ClockState
+    @GestureState var isDetectingLongPress : ClockState.LongPressState = .inactive
+    
+    var longPress: some Gesture {
+        LongPressGesture(minimumDuration: 2)
+            .updating($isDetectingLongPress) { currentState, gestureState,
+                transaction in
+                gestureState = .active
+                transaction.animation = Animation.easeInOut(duration: 1.5)
+            }
+            .onEnded { finished in
+                clockData.completedLongPress = finished
+                clockData.isAlarmOn.toggle()
+                
+                if clockData.alarmHour > 0 {
+                    Timer.scheduledTimer(withTimeInterval: Double(clockData.alarmHour * 60 * 60), repeats: false) { timer in
+                        SoundManager.shared.playSound(sound: .positive)
+                    }
+                } else { print("long pressed") }
+            }
+    }
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        GeometryReader { geometry in
+            VStack {
+                HStack {
+                    if !clockData.isAlarmOn {
+                        GuideButton()
+                    }
+                    
+                    Spacer()
+                    
+                    if clockData.isAlarmOn {
+                        AddTimeButton()
+                            .frame(width: geometry.size.width/10)
+                            .padding(.trailing, 20)
+                    }
+                    
+                    AlarmButton()
+                        .frame(width: geometry.size.width/6)
+                }
+                .padding(.horizontal, 40)
+                .frame(width: geometry.size.width, height: geometry.size.height/6)
+                .padding(.top, 20)
+                
+                if clockData.isGuideOn {
+                    GuideView()
+                } else if clockData.isAlarmOn {
+                    AlarmView()
+                        .environmentObject(clockData)
+                } else {
+                    TabView {
+                        HourView()
+                        MinuteView()
+                    }
+                    .tabViewStyle(.page(indexDisplayMode: .never))
+                }
+            }
+            .frame(width: geometry.size.width, height: geometry.size.height)
         }
-        .padding()
+        .background(clockData.isGuideOn ? Color("guideBgColor") : Color("clockBgColor"))
+        .onTapGesture {
+            if clockData.isAlarmOn { clockData.isAlarmOn = false }
+        }
     }
 }
 
+
 #Preview {
     ContentView()
+        .environmentObject(ClockState())
 }

@@ -1,18 +1,15 @@
-//
-//  AddTimeButton.swift
-//  Time to Dot
-//
-//  Created by Jia Jang on 6/7/24.
-//
-
 import SwiftUI
 
 struct AddTimeButton: View {
+    @EnvironmentObject var clockData: ClockState
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button(action: {
+            if clockData.alarmHour == 12 { clockData.alarmHour = 1 }
+            else { clockData.alarmHour += 1 }
+        }, label: {
+            Circle()
+                .fill(Color("accentColor"))
+        })
     }
-}
-
-#Preview {
-    AddTimeButton()
 }

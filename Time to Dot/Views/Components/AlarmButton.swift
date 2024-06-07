@@ -1,18 +1,39 @@
-//
-//  AlarmButton.swift
-//  Time to Dot
-//
-//  Created by Jia Jang on 6/7/24.
-//
-
 import SwiftUI
 
 struct AlarmButton: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    @EnvironmentObject var clockData: ClockState
+    @GestureState var isDetectingLongPress : ClockState.LongPressState = .inactive
+    
+    var longPress: some Gesture {
+        LongPressGesture(minimumDuration: 2)
+            .updating($isDetectingLongPress) { currentState, gestureState,
+                transaction in
+                
+                transaction.animation = Animation.easeInOut(duration: 1.5)
+                gestureState = .inactive
+                
+            }
+            .onEnded { finished in
+                clockData.completedLongPress = finished
+                clockData.isAlarmOn.toggle()
+                
+                // MARK: alarm test
+                if clockData.alarmHour > 0 {
+                    Timer.scheduledTimer(withTimeInterval: Double(clockData.alarmHour * 60 * 60), repeats: false) { timer in
+                        SoundManager.shared.playSound(sound: .positive)
+                    }
+                }
+                // MARK: long press test
+                else { print("long pressed") }
+            }
     }
-}
-
-#Preview {
-    AlarmButton()
+    
+    var body: some View {
+            RoundedRectangle(cornerSize: CGSize(width: 100, height: 100))
+                .fill(clockData.isDetectingLongPress == .active ?
+                      (clockData.isAlarmOn ? Color("alarmColor") : Color("accentColor")) :
+                        (clockData.completedLongPress ? (clockData.isAlarmOn ? Color("accentColor") : Color("alarmColor")) : Color("alarmColor")))
+                .gesture(longPress)
+                .animation(.easeInOut, value: isDetectingLongPress)
+    }
 }

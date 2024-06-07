@@ -1,8 +1,19 @@
-//
-//  ClockState.swift
-//  Time to Dot
-//
-//  Created by Jia Jang on 6/7/24.
-//
+import SwiftUI
 
-import Foundation
+class ClockState: ObservableObject {
+    @Published var isAlarmOn: Bool = false
+    @Published var completedLongPress: Bool = false
+    @Published var alarmHour: Int = 0
+    @Published var isGuideOn: Bool = false
+    @Published var isDetectingLongPress: LongPressState = .inactive
+    
+    enum LongPressState {
+        case active
+        case inactive
+    }
+    
+    func toggleGuide() {
+        isGuideOn.toggle()
+    }
+}
+

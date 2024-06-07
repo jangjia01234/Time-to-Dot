@@ -1,15 +1,73 @@
-//
-//  MinuteView.swift
-//  Time to Dot
-//
-//  Created by Jia Jang on 6/7/24.
-//
-
 import SwiftUI
 
 struct MinuteView: View {
+    @ObservedObject var colorManager = ColorManager()
+    
+    let timer = Timer.publish(every: 60, on: .main, in: .default).autoconnect()
+    
+    var rows = 3
+    var columns = 2
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        GeometryReader { geometry in
+            VStack {
+                HStack {
+                    // MARK: number formatting mark
+                    Grid {
+                        ForEach(0..<rows, id: \.self) { row in
+                            GridRow {
+                                ForEach(0..<columns, id: \.self) { column in
+                                    let number = row * self.columns + column
+                                    
+                                    Circle()
+                                        .foregroundColor(number == 0 || number == 2 ? Color("disabledBrailleColor") : Color("accentColor"))
+                                }
+                            }
+                        }
+                        
+                    }
+                    .padding(.horizontal, 20)
+                    
+                    Grid {
+                        ForEach(0..<rows, id: \.self) { row in
+                            GridRow {
+                                ForEach(0..<columns, id: \.self) { column in
+                                    let circleNumber = row * self.columns + column + 1
+                                    
+                                    ZStack {
+                                        Circle()
+                                            .foregroundColor(colorManager.changeMinColors(for: circleNumber))
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .padding(.horizontal, 20)
+                    
+                    Grid {
+                        ForEach(0..<rows, id: \.self) { row in
+                            GridRow {
+                                ForEach(0..<columns, id: \.self) { column in
+                                    let circleNumber = row * self.columns + column + +7
+                                    
+                                    ZStack {
+                                        Circle()
+                                            .foregroundColor(colorManager.changeMinColors(for: circleNumber))
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .padding(.horizontal, 20)
+                    
+                }
+            }
+            .padding(.horizontal, 60)
+            .frame(width: geometry.size.width, height: geometry.size.height)
+        }
+        .onReceive(timer) { _ in
+            colorManager.nowMin = Calendar.current.component(.minute, from: Date())
+        }
     }
 }
 

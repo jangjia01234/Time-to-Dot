@@ -1,18 +1,20 @@
-//
-//  GuideButton.swift
-//  Time to Dot
-//
-//  Created by Jia Jang on 6/7/24.
-//
-
 import SwiftUI
 
 struct GuideButton: View {
+    @EnvironmentObject var clockData: ClockState
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-#Preview {
-    GuideButton()
+            Button(action: {
+                clockData.toggleGuide()
+            }, label: {
+                Circle()
+                    .foregroundColor(Color("guideButtonColor"))
+                    .overlay(
+                        Image(systemName: "questionmark")
+                            .font(.largeTitle)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.white)
+                    )
+            })
+        }
 }

@@ -7,18 +7,43 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8D4EC9382C134FEB00376664 /* Time_to_DotApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4EC9372C134FEB00376664 /* Time_to_DotApp.swift */; };
+		8D4EC9382C134FEB00376664 /* TimetoDotApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4EC9372C134FEB00376664 /* TimetoDotApp.swift */; };
 		8D4EC93A2C134FEB00376664 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4EC9392C134FEB00376664 /* ContentView.swift */; };
 		8D4EC93C2C134FEC00376664 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D4EC93B2C134FEC00376664 /* Assets.xcassets */; };
 		8D4EC93F2C134FEC00376664 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D4EC93E2C134FEC00376664 /* Preview Assets.xcassets */; };
+		8D4EC94A2C13511100376664 /* AlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4EC9492C13511100376664 /* AlarmView.swift */; };
+		8D4EC94C2C13511C00376664 /* HourView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4EC94B2C13511C00376664 /* HourView.swift */; };
+		8D4EC94E2C13512200376664 /* MinuteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4EC94D2C13512200376664 /* MinuteView.swift */; };
+		8D4EC9502C13512800376664 /* GuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4EC94F2C13512800376664 /* GuideView.swift */; };
+		8D4EC9522C13514B00376664 /* TextData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4EC9512C13514B00376664 /* TextData.swift */; };
+		8D4EC9542C1351AF00376664 /* brailleClockAlarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8D4EC9532C1351AF00376664 /* brailleClockAlarm.mp3 */; };
+		8D4EC9562C1351D300376664 /* ClockState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4EC9552C1351D300376664 /* ClockState.swift */; };
+		8D4EC9582C1351F800376664 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4EC9572C1351F800376664 /* SoundManager.swift */; };
+		8D4EC95A2C13521D00376664 /* GuideButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4EC9592C13521D00376664 /* GuideButton.swift */; };
+		8D4EC95C2C13524100376664 /* AlarmButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4EC95B2C13524100376664 /* AlarmButton.swift */; };
+		8D4EC95E2C13525D00376664 /* AddTimeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4EC95D2C13525D00376664 /* AddTimeButton.swift */; };
+		8D4EC9602C13547B00376664 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4EC95F2C13547B00376664 /* ColorManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8D4EC9342C134FEB00376664 /* Time to Dot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Time to Dot.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8D4EC9372C134FEB00376664 /* Time_to_DotApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time_to_DotApp.swift; sourceTree = "<group>"; };
+		8D4EC9372C134FEB00376664 /* TimetoDotApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetoDotApp.swift; sourceTree = "<group>"; };
 		8D4EC9392C134FEB00376664 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8D4EC93B2C134FEC00376664 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D4EC93E2C134FEC00376664 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8D4EC9492C13511100376664 /* AlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmView.swift; sourceTree = "<group>"; };
+		8D4EC94B2C13511C00376664 /* HourView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourView.swift; sourceTree = "<group>"; };
+		8D4EC94D2C13512200376664 /* MinuteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinuteView.swift; sourceTree = "<group>"; };
+		8D4EC94F2C13512800376664 /* GuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideView.swift; sourceTree = "<group>"; };
+		8D4EC9512C13514B00376664 /* TextData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextData.swift; sourceTree = "<group>"; };
+		8D4EC9532C1351AF00376664 /* brailleClockAlarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = brailleClockAlarm.mp3; path = "../../../../스스챌2024/Time to Dot/brailleClockAlarm.mp3"; sourceTree = "<group>"; };
+		8D4EC9552C1351D300376664 /* ClockState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockState.swift; sourceTree = "<group>"; };
+		8D4EC9572C1351F800376664 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		8D4EC9592C13521D00376664 /* GuideButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideButton.swift; sourceTree = "<group>"; };
+		8D4EC95B2C13524100376664 /* AlarmButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmButton.swift; sourceTree = "<group>"; };
+		8D4EC95D2C13525D00376664 /* AddTimeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeButton.swift; sourceTree = "<group>"; };
+		8D4EC95F2C13547B00376664 /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
+		8D4EC9612C13637B00376664 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +60,7 @@
 		8D4EC92B2C134FEB00376664 = {
 			isa = PBXGroup;
 			children = (
+				8D4EC9612C13637B00376664 /* README.md */,
 				8D4EC9362C134FEB00376664 /* Time to Dot */,
 				8D4EC9352C134FEB00376664 /* Products */,
 			);
@@ -51,9 +77,10 @@
 		8D4EC9362C134FEB00376664 /* Time to Dot */ = {
 			isa = PBXGroup;
 			children = (
-				8D4EC9372C134FEB00376664 /* Time_to_DotApp.swift */,
-				8D4EC9392C134FEB00376664 /* ContentView.swift */,
-				8D4EC93B2C134FEC00376664 /* Assets.xcassets */,
+				8D4EC9472C1350C800376664 /* Resources */,
+				8D4EC9462C1350C400376664 /* Models */,
+				8D4EC9452C1350C000376664 /* Views */,
+				8D4EC9372C134FEB00376664 /* TimetoDotApp.swift */,
 				8D4EC93D2C134FEC00376664 /* Preview Content */,
 			);
 			path = "Time to Dot";
@@ -65,6 +92,49 @@
 				8D4EC93E2C134FEC00376664 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8D4EC9452C1350C000376664 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8D4EC9482C1350EB00376664 /* Components */,
+				8D4EC9392C134FEB00376664 /* ContentView.swift */,
+				8D4EC9492C13511100376664 /* AlarmView.swift */,
+				8D4EC94B2C13511C00376664 /* HourView.swift */,
+				8D4EC94D2C13512200376664 /* MinuteView.swift */,
+				8D4EC94F2C13512800376664 /* GuideView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8D4EC9462C1350C400376664 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8D4EC9512C13514B00376664 /* TextData.swift */,
+				8D4EC9552C1351D300376664 /* ClockState.swift */,
+				8D4EC9572C1351F800376664 /* SoundManager.swift */,
+				8D4EC95F2C13547B00376664 /* ColorManager.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8D4EC9472C1350C800376664 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8D4EC9532C1351AF00376664 /* brailleClockAlarm.mp3 */,
+				8D4EC93B2C134FEC00376664 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8D4EC9482C1350EB00376664 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				8D4EC9592C13521D00376664 /* GuideButton.swift */,
+				8D4EC95B2C13524100376664 /* AlarmButton.swift */,
+				8D4EC95D2C13525D00376664 /* AddTimeButton.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,6 +197,7 @@
 			files = (
 				8D4EC93F2C134FEC00376664 /* Preview Assets.xcassets in Resources */,
 				8D4EC93C2C134FEC00376664 /* Assets.xcassets in Resources */,
+				8D4EC9542C1351AF00376664 /* brailleClockAlarm.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,8 +208,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D4EC9562C1351D300376664 /* ClockState.swift in Sources */,
+				8D4EC95C2C13524100376664 /* AlarmButton.swift in Sources */,
+				8D4EC94E2C13512200376664 /* MinuteView.swift in Sources */,
 				8D4EC93A2C134FEB00376664 /* ContentView.swift in Sources */,
-				8D4EC9382C134FEB00376664 /* Time_to_DotApp.swift in Sources */,
+				8D4EC94A2C13511100376664 /* AlarmView.swift in Sources */,
+				8D4EC95A2C13521D00376664 /* GuideButton.swift in Sources */,
+				8D4EC9502C13512800376664 /* GuideView.swift in Sources */,
+				8D4EC9602C13547B00376664 /* ColorManager.swift in Sources */,
+				8D4EC94C2C13511C00376664 /* HourView.swift in Sources */,
+				8D4EC9382C134FEB00376664 /* TimetoDotApp.swift in Sources */,
+				8D4EC9522C13514B00376664 /* TextData.swift in Sources */,
+				8D4EC95E2C13525D00376664 /* AddTimeButton.swift in Sources */,
+				8D4EC9582C1351F800376664 /* SoundManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

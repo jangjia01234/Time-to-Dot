@@ -68,4 +68,4 @@ This App is a step towards inclusivity, offering a practical solution for those 
 ---
 
 🍀 Anyone can check out my profile on [Linkedin](https://www.linkedin.com/in/jiajang/) <br>
-✉️ For any questions or feedback, feel free to contact me at jangjia01234@gmail.com.
+✉️ For any questions or feedback, feel free to contact me at jangjia01234@gmail.com

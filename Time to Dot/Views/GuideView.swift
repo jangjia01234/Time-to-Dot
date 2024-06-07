@@ -1,82 +1,82 @@
 import SwiftUI
 
 struct GuideView: View {
-    let guideTextList : [String] = TextData.guideText
+    let guideTextList: [String] = TextData.guideText
     
     var body: some View {
         GeometryReader { geometry in
             ScrollView {
-                VStack {
-                    // MARK: Title
-                    Text(guideTextList[0])
-                        .font(geometry.size.width > 800 ? .largeTitle : .title2)
-                        .fontWeight(.bold)
-                        .accessibilityLabel(guideTextList[0])
-                    
-                    VStack(alignment: .leading, spacing: 16) {
-                        // MARK: Onboarding
-                        VStack(alignment: .leading) {
-                            Text(guideTextList[1])
-                                .font(geometry.size.width > 800 ? .title : .body)
-                                .fontWeight(.bold)
-                                .accessibilityLabel(guideTextList[1])
-                            
-                            Text(guideTextList[2])
-                                .font(geometry.size.width > 800 ? .title2 : .body)
-                                .accessibilityLabel(guideTextList[2])
-                            Text(guideTextList[3])
-                                .font(geometry.size.width > 800 ? .title2 : .body)
-                                .accessibilityLabel(guideTextList[3])
-                        }
-                        
-                        // MARK: 1. Braille clock
-                        VStack(alignment: .leading) {
-                            Text(guideTextList[4])
-                                .font(geometry.size.width > 800 ? .title : .body)
-                                .fontWeight(.semibold)
-                                .accessibilityLabel(guideTextList[4])
-                            
-                            Text(guideTextList[5])
-                                .font(geometry.size.width > 800 ? .title2 : .body)
-                                .accessibilityLabel(guideTextList[5])
-                            Text(guideTextList[6])
-                                .font(geometry.size.width > 800 ? .title2 : .body)
-                                .accessibilityLabel(guideTextList[6])
-                        }
-                        
-                        // MARK: 2. Easy alarm
-                        VStack(alignment: .leading) {
-                            Text(guideTextList[7])
-                                .font(geometry.size.width > 800 ? .title : .body)
-                                .fontWeight(.semibold)
-                                .accessibilityLabel(guideTextList[7])
-                            
-                            Text(guideTextList[8])
-                                .font(geometry.size.width > 800 ? .title2 : .body)
-                                .accessibilityLabel(guideTextList[8])
-                            
-                            Text(guideTextList[9])
-                                .font(geometry.size.width > 800 ? .title2 : .body)
-                                .accessibilityLabel(guideTextList[9])
-                            Text(guideTextList[10])
-                                .font(geometry.size.width > 800 ? .title2 : .body)
-                                .accessibilityLabel(guideTextList[10])
-                            Text(guideTextList[11])
-                                .font(geometry.size.width > 800 ? .title2 : .body)
-                                .accessibilityLabel(guideTextList[11])
-                        }
+                // MARK: - Title
+                GuideText(text: guideTextList[0],
+                          font: calculateFont(for: 0, size: geometry.size.width),
+                          fontWeight: .bold)
+                
+                VStack(alignment: .leading) {
+                    // MARK: - Onboarding
+                    ForEach(1...3, id: \.self) { index in
+                        GuideText(text: guideTextList[index],
+                                  font: calculateFont(for: index, size: geometry.size.width),
+                                  fontWeight: index == 1 ? .bold : nil)
                     }
-                    .padding(.horizontal, 20)
-                    .accessibilityElement(children: .combine)
+                    
+                    // MARK: - 1. Braille clock
+                    ForEach(4...6, id: \.self) { index in
+                        GuideText(text: guideTextList[index],
+                                  font: calculateFont(for: index, size: geometry.size.width),
+                                  fontWeight: index == 4 ? .semibold : nil)
+                    }
+                    
+                    // MARK: - 2. Easy alarm
+                    ForEach(7...11, id: \.self) { index in
+                        GuideText(text: guideTextList[index],
+                                  font: calculateFont(for: index, size: geometry.size.width),
+                                  fontWeight: index == 7 ? .semibold : nil)
+                    }
                 }
-                .padding(.vertical, 20)
-                .padding(.horizontal, 40)
-                .foregroundColor(.black)
-                .background(Color("guideBgColor"))
+            }
+            .padding(.horizontal, 40)
+            .padding(.vertical, 20)
+            .foregroundColor(.black)
+            .background(Color("guideBgColor"))
+            .frame(width: geometry.size.width)
+        }
+    }
+    
+    func calculateFont(for index: Int, size: CGFloat) -> Font {
+        if size > 800 {
+            switch index {
+            case 0:
+                return .largeTitle
+            case 1, 4, 7:
+                return .title
+            default:
+                return .title2
+            }
+        } else {
+            switch index {
+            case 0:
+                return .title2
+            default:
+                return .body
             }
         }
     }
 }
+
+struct GuideText: View {
+    let text: String
+    let font: Font
+    var fontWeight: Font.Weight? = nil
+    
+    var body: some View {
+        Text(text)
+            .font(font)
+            .fontWeight(fontWeight)
+            .accessibilityLabel(text)
+            .padding(.vertical, 2)
+    }
+}
+
 
 #Preview {
     GuideView()

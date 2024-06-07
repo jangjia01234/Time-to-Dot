@@ -12,6 +12,7 @@ struct Time_to_DotApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(ClockState())
         }
     }
 }

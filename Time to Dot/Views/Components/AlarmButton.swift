@@ -9,6 +9,7 @@ struct AlarmButton: View {
             .updating($isDetectingLongPress) { currentState, gestureState,
                 transaction in
                 
+                // TODO: - 🚨 Fix long press color animation
                 transaction.animation = Animation.easeInOut(duration: 1.5)
                 gestureState = .inactive
                 
@@ -17,13 +18,12 @@ struct AlarmButton: View {
                 clockData.completedLongPress = finished
                 clockData.isAlarmOn.toggle()
                 
-                // MARK: alarm test
+                // MARK: - Alarm test (Now available every hour)
                 if clockData.alarmHour > 0 {
                     Timer.scheduledTimer(withTimeInterval: Double(clockData.alarmHour * 60 * 60), repeats: false) { timer in
                         SoundManager.shared.playSound(sound: .positive)
                     }
                 }
-                // MARK: long press test
                 else { print("long pressed") }
             }
     }

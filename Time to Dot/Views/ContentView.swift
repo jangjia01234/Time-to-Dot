@@ -63,7 +63,15 @@ struct ContentView: View {
         }
         .background(clockData.isGuideOn ? Color("guideBgColor") : Color("clockBgColor"))
         .onTapGesture {
+            // MARK: Close Alarm Setting View when user touches anywhere
             if clockData.isAlarmOn { clockData.isAlarmOn = false }
+            
+            // MARK: Stop Alarm Sound when user touches anywhere (while the sound is ringing)
+            if SoundManager.shared.isAlarmSoundOn {
+                SoundManager.shared.stopSound()
+                clockData.isAlarmOn = false
+                clockData.alarmHour = 0
+            }
         }
     }
 }

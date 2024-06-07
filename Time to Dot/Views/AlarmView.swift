@@ -63,47 +63,6 @@ struct AlarmView: View {
             }
             .padding(.horizontal, 60)
             .frame(width: geometry.size.width, height: geometry.size.height)
-//            VStack {
-//                Grid {
-//                    GridRow {
-//                        Color.clear
-//                            .gridCellUnsizedAxes([.horizontal, .vertical])
-//                    }
-//                    ForEach(1..<4) { row in
-//                        HStack {
-//                            GridRow {
-//                                ForEach(1..<3) { column in
-//                                    let idNum = row * 2 + column - 2
-//                                    Circle()
-//                                        .foregroundColor(idNum == 2 || idNum == 4 || idNum == 5 || idNum == 6 ? Color("alarmColor") : Color("disabledBrailleColor"))
-//                                        .id(idNum)
-//                                }
-//                                
-//                                ForEach(1..<3) { column in
-//                                    let idLeft = row * 2 + column - 2
-//                                    Circle()
-//                                        .foregroundColor(changeAlarmColors(for: idLeft))
-//                                        .id(idLeft)
-//                                        .padding(.leading, idLeft == 1 || idLeft == 3 || idLeft == 5 ? 36 : 0)
-//                                        .padding(.trailing, idLeft == 2 || idLeft == 4 || idLeft == 6 ? 36 : 0)
-//                                }
-//                                
-//                                ForEach(1..<3) { column in
-//                                    let idRight = row * 2 + column + 4
-//                                    Circle()
-//                                        .foregroundColor(changeAlarmColors(for: idRight))
-//                                        .id(idRight)
-//                                }
-//                            }
-//                            .padding(.leading, -10)
-//                        }
-//                    }
-//                    .padding(-5)
-//                }
-//                .padding(.top, 100)
-//                .padding()
-//            }
-//            .frame(width: geometry.size.width, height: geometry.size.height)
         }
     }
     

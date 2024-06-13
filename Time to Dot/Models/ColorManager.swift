@@ -6,7 +6,7 @@ class ColorManager: ObservableObject {
     
     func changeHourColors(for id: Int) -> Color {
         switch nowHour {
-        case 0 where id == 2 || id == 3 || id == 4 || id == 8 || id == 9 || id == 10:
+        case 0 where id == 2 || id == 3 || id == 4:
             return Color ("accentColor")
         case 1 where id == 1:
             return Color("accentColor")

@@ -65,7 +65,7 @@ struct HourView: View {
             .frame(width: geometry.size.width, height: geometry.size.height)
         }
         .onReceive(timer) { _ in
-            colorManager.nowHour = Calendar.current.component(.hour, from: Date())
+            self.colorManager.nowHour = Calendar.current.component(.hour, from: Date())
         }
     }
 }

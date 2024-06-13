@@ -65,6 +65,14 @@ This App is a step towards inclusivity, offering a practical solution for those 
 
 <br>
 
+## ✔️ To Do
+
+- Add haptics by using the reference of Taptic Time (Double-checked idea with Apple Accessibility Team)
+- Add color themes to cover different type of color blindness
+
+
+<br>
+
 ---
 
 🍀 Anyone can check out my profile on [Linkedin](https://www.linkedin.com/in/jiajang/) <br>

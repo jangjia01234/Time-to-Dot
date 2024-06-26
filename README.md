@@ -1,9 +1,9 @@
 <h1> Time to Dot
-  <img align="right" src="https://github.com/jangjia01234/Time-to-Dot/assets/71865277/fd54040c-8b03-4d86-b6f4-abf4e54a7c85" width=74px>
+  <img align="right" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcHYV9l%2FbtsIeenzJB2%2FR2G5jW9vfSq7PQjBp79ykk%2Fimg.png" width=74px>
 </h1>
 
 <p align="center">
-  <img align="center" src="https://github.com/jangjia01234/Time-to-Dot/assets/71865277/61d0bf3f-2ec9-4f08-8c4d-9f15e2ec4d98" width=275px>
+  <img align="center" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F3ydTk%2FbtsIefUmMru%2FXrgMkk2o3ik6NThKexji40%2Fimg.png" width=275px>
 </p>
 
 ## 📖 Introduction
@@ -11,7 +11,7 @@
 'Time to Dot' is a simple clock app designed to make checking the time easier for individuals with mild blindness.
 
 <p align="center">
-  <img align="center" src="https://github.com/jangjia01234/Time-to-Dot/assets/71865277/42768474-30a7-43a4-8f00-21d02b8cbccd"/>
+  <img align="center" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fq6zd7%2FbtsId8gNMhA%2FZ9Lr2upo2mM5FM94yd8wQ1%2Fimg.png"/>
 </p>
 
 <br><br>

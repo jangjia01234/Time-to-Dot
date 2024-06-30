@@ -9,7 +9,7 @@ struct AddTimeButton: View {
             else { clockData.alarmHour += 1 }
         }, label: {
             Circle()
-                .fill(Color("accentColor"))
+                .fill(Color("AccentColor"))
         })
     }
 }

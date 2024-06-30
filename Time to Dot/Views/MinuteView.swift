@@ -20,7 +20,7 @@ struct MinuteView: View {
                                     let number = row * self.columns + column
                                     
                                     Circle()
-                                        .foregroundColor(number == 0 || number == 2 ? Color("disabledBrailleColor") : Color("accentColor"))
+                                        .foregroundColor(number == 0 || number == 2 ? Color("disabledBrailleColor") : Color("AccentColor"))
                                 }
                             }
                         }

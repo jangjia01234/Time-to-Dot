@@ -31,8 +31,8 @@ struct AlarmButton: View {
     var body: some View {
             RoundedRectangle(cornerSize: CGSize(width: 100, height: 100))
                 .fill(clockData.isDetectingLongPress == .active ?
-                      (clockData.isAlarmOn ? Color("alarmColor") : Color("accentColor")) :
-                        (clockData.completedLongPress ? (clockData.isAlarmOn ? Color("accentColor") : Color("alarmColor")) : Color("alarmColor")))
+                      (clockData.isAlarmOn ? Color("alarmColor") : Color("AccentColor")) :
+                        (clockData.completedLongPress ? (clockData.isAlarmOn ? Color("AccentColor") : Color("alarmColor")) : Color("alarmColor")))
                 .gesture(longPress)
                 .animation(.easeInOut, value: isDetectingLongPress)
     }

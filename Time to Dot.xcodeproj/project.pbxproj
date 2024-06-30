@@ -16,13 +16,13 @@
 		8D4EC94E2C13512200376664 /* MinuteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4EC94D2C13512200376664 /* MinuteView.swift */; };
 		8D4EC9502C13512800376664 /* GuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4EC94F2C13512800376664 /* GuideView.swift */; };
 		8D4EC9522C13514B00376664 /* TextData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4EC9512C13514B00376664 /* TextData.swift */; };
-		8D4EC9542C1351AF00376664 /* brailleClockAlarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8D4EC9532C1351AF00376664 /* brailleClockAlarm.mp3 */; };
 		8D4EC9562C1351D300376664 /* ClockState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4EC9552C1351D300376664 /* ClockState.swift */; };
 		8D4EC9582C1351F800376664 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4EC9572C1351F800376664 /* SoundManager.swift */; };
 		8D4EC95A2C13521D00376664 /* GuideButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4EC9592C13521D00376664 /* GuideButton.swift */; };
 		8D4EC95C2C13524100376664 /* AlarmButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4EC95B2C13524100376664 /* AlarmButton.swift */; };
 		8D4EC95E2C13525D00376664 /* AddTimeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4EC95D2C13525D00376664 /* AddTimeButton.swift */; };
 		8D4EC9602C13547B00376664 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4EC95F2C13547B00376664 /* ColorManager.swift */; };
+		8DE866532C3007830045FB72 /* brailleClockAlarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8DE866522C3007830045FB72 /* brailleClockAlarm.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,7 +36,6 @@
 		8D4EC94D2C13512200376664 /* MinuteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinuteView.swift; sourceTree = "<group>"; };
 		8D4EC94F2C13512800376664 /* GuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideView.swift; sourceTree = "<group>"; };
 		8D4EC9512C13514B00376664 /* TextData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextData.swift; sourceTree = "<group>"; };
-		8D4EC9532C1351AF00376664 /* brailleClockAlarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = brailleClockAlarm.mp3; path = "../../../../스스챌2024/Time to Dot/brailleClockAlarm.mp3"; sourceTree = "<group>"; };
 		8D4EC9552C1351D300376664 /* ClockState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockState.swift; sourceTree = "<group>"; };
 		8D4EC9572C1351F800376664 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		8D4EC9592C13521D00376664 /* GuideButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideButton.swift; sourceTree = "<group>"; };
@@ -44,6 +43,7 @@
 		8D4EC95D2C13525D00376664 /* AddTimeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeButton.swift; sourceTree = "<group>"; };
 		8D4EC95F2C13547B00376664 /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
 		8D4EC9612C13637B00376664 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		8DE866522C3007830045FB72 /* brailleClockAlarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = brailleClockAlarm.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,7 +121,7 @@
 		8D4EC9472C1350C800376664 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				8D4EC9532C1351AF00376664 /* brailleClockAlarm.mp3 */,
+				8DE866522C3007830045FB72 /* brailleClockAlarm.mp3 */,
 				8D4EC93B2C134FEC00376664 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -197,7 +197,7 @@
 			files = (
 				8D4EC93F2C134FEC00376664 /* Preview Assets.xcassets in Resources */,
 				8D4EC93C2C134FEC00376664 /* Assets.xcassets in Resources */,
-				8D4EC9542C1351AF00376664 /* brailleClockAlarm.mp3 in Resources */,
+				8DE866532C3007830045FB72 /* brailleClockAlarm.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,8 +360,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -369,6 +368,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jia.Time-to-Dot";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -389,8 +391,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -398,6 +399,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jia.Time-to-Dot";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

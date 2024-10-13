@@ -11,60 +11,60 @@ struct GuideView: View {
     let guideTextList: [String] = TextData.guideText
     
     var body: some View {
-        GeometryReader { geometry in
-            ScrollView {
-                // MARK: - Title
-                guideText(text: guideTextList[0], font: calculateFont(for: 0, size: geometry.size.width), fontWeight: .bold)
+        ScrollView {
+            ZStack {
+                Color("guideBgColor")
+                    .ignoresSafeArea()
                 
-                VStack(alignment: .leading) {
-                    // MARK: - Onboarding
-                    ForEach(1...3, id: \.self) { index in
-                        guideText(text: guideTextList[index], font: calculateFont(for: index, size: geometry.size.width), fontWeight: index == 1 ? .bold : nil)
-                    }
-                    
-                    // MARK: - 1. Braille clock
-                    ForEach(4...6, id: \.self) { index in
-                        guideText(text: guideTextList[index], font: calculateFont(for: index, size: geometry.size.width), fontWeight: index == 4 ? .semibold : nil)
-                    }
-                    
-                    // MARK: - 2. Easy alarm
-                    ForEach(7...11, id: \.self) { index in
-                        guideText(text: guideTextList[index], font: calculateFont(for: index, size: geometry.size.width), fontWeight: index == 7 ? .semibold : nil)
-                    }
+                VStack(spacing: 40) {
+                    title
+                    content
                 }
             }
-            .padding(.horizontal, 40)
-            .padding(.vertical, 20)
-            .foregroundColor(.black)
-            .background(Color("guideBgColor"))
-            .frame(width: geometry.size.width)
+        }
+        .padding(.horizontal, 40)
+        .padding(.vertical, 20)
+        .foregroundColor(.black)
+        .background(Color("guideBgColor"))
+    }
+    
+    private var title: some View {
+        guideText(text: guideTextList[0], font: .largeTitle, fontWeight: .bold)
+    }
+    
+    private var content: some View {
+        VStack(alignment: .leading, spacing: 30) {
+            welcome
+            brailleClock
+            easyAlarm
         }
     }
-}
-
-fileprivate extension GuideView {
-    // MARK: - 반응형 폰트 대응 (아이패드, 아이폰)
-    func calculateFont(for index: Int, size: CGFloat) -> Font {
-        if size > 800 {
-            switch index {
-            case 0:
-                return .largeTitle
-            case 1, 4, 7:
-                return .title
-            default:
-                return .title2
-            }
-        } else {
-            switch index {
-            case 0:
-                return .title2
-            default:
-                return .body
+    
+    private var welcome: some View {
+        VStack(alignment: .leading){
+            ForEach(1...3, id: \.self) { index in
+                guideText(text: guideTextList[index], font: .title2, fontWeight: index == 1 ? .bold : nil)
             }
         }
     }
     
-    func guideText(text: String, font: Font, fontWeight: Font.Weight?) -> some View {
+    private var brailleClock: some View {
+        VStack(alignment: .leading){
+            ForEach(4...6, id: \.self) { index in
+                guideText(text: guideTextList[index], font: .title2, fontWeight: index == 4 ? .semibold : nil)
+            }
+        }
+    }
+    
+    private var easyAlarm: some View {
+        VStack(alignment: .leading){
+            ForEach(7...11, id: \.self) { index in
+                guideText(text: guideTextList[index], font: .title2, fontWeight: index == 7 ? .semibold : nil)
+            }
+        }
+    }
+    
+    private func guideText(text: String, font: Font, fontWeight: Font.Weight?) -> some View {
         Text(text)
             .font(font)
             .fontWeight(fontWeight)
@@ -73,8 +73,6 @@ fileprivate extension GuideView {
     }
 }
 
-
 #Preview {
     GuideView()
 }
-

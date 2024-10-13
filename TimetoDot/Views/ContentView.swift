@@ -1,5 +1,8 @@
 import SwiftUI
 
+// 🔥 FIX: 알람 소리 울리지만, 화면 터치해도 꺼지지 않는 버그 있음!!
+// -> 아 설마 1시간 단위라서 안울리나?? ㅋㅋ허무..
+
 struct ContentView: View {
     @EnvironmentObject var clockData: ClockState
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
@@ -7,9 +10,11 @@ struct ContentView: View {
     
     @GestureState private var isDetectingLongPress: ClockState.LongPressState = .inactive
     
-    @State private var isOnboardingTextOn: Bool = true
-    @State private var hideOnboarding: Bool = false
     @State private var isRotated = false
+    
+    @ObservedObject var colorManager = ColorManager()
+    
+    let timer = Timer.publish(every: 60, on: .main, in: .default).autoconnect()
     
     var body: some View {
         GeometryReader { geometry in
@@ -17,62 +22,83 @@ struct ContentView: View {
         }
         .background(changeBgColor())
         .onTapGesture {
-            stopAlarmSound()
+            stopAlarmSound(clockData: clockData)
         }
     }
 }
 
+
+
 fileprivate extension ContentView {
-    
     // MARK: - Components
-    var addTimeButton: some View {
-        Button(action: {
-            if clockData.alarmHour == 12 { clockData.alarmHour = 1 }
-            else { clockData.alarmHour += 1 }
-        }, label: {
-            Circle()
-                .fill(Color("AccentColor"))
-        })
-    }
-    
-    var guideButton: some View {
-        Button(action: {
-            clockData.toggleGuide()
-        }, label: {
-            Circle()
-                .foregroundColor(Color("guideButtonColor"))
-                .overlay(
-                    Image(systemName: "questionmark")
-                        .font(.largeTitle)
-                        .fontWeight(.semibold)
-                        .foregroundColor(.white)
-                )
-        })
-    }
-    
     func topBar(geometry: GeometryProxy) -> some View {
         HStack {
             if clockData.isAlarmOn {
-                HStack {
-                    Spacer()
-                    addTimeButton
-                        .frame(width: geometry.size.width / 10)
-                        .padding(.trailing, geometry.size.width > 800 ? 10 : 0)
-                }
+                Spacer()
+                AddTimeButton()
             } else {
-                HStack {
-                    guideButton
-                    Spacer()
-                }
+                GuideButton()
+                Spacer()
             }
             
             AlarmButton()
-                .frame(width: geometry.size.width > 800 ? geometry.size.width / 6 : geometry.size.width / 7.5)
+                .frame(width: geometry.size.width > 800 ? 160 : 100)
         }
         .padding(.horizontal, 40)
-        .frame(width: geometry.size.width, height: geometry.size.height / 6)
         .padding(.top, 20)
+        .frame(height: geometry.size.width > 800 ? geometry.size.height / 9 : geometry.size.height / 5)
     }
+    
+    func gridView(row: Int, isSign: Bool, type: TimeType, colorManager: ColorManager, offset: Int) -> some View {
+        GridRow {
+            ForEach(0..<2, id: \.self) { column in
+                let circleNumber = row * 2 + column + offset
+                
+                if isSign {
+                    Circle()
+                        .foregroundColor(circleNumber == 0 || circleNumber == 2 ? Color("disabledBrailleColor") : Color("AccentColor"))
+                } else {
+                    Circle()
+                        .foregroundColor(type == .hour ?
+                                         colorManager.changeHourColors(for: circleNumber) :
+                                            colorManager.changeMinColors(for: circleNumber))
+                }
+                
+            }
+        }
+    }
+    
+    // MARK: - Views
+//    func clockView(type: TimeType, colorManager: ColorManager) -> some View {
+//        GeometryReader { geometry in
+//            VStack {
+//                HStack {
+//                    Grid {
+//                        ForEach(0..<3, id: \.self) { row in
+//                            gridView(row: row, isSign: true, type: type, colorManager: colorManager, offset: 0)
+//                        }
+//                    }
+//                    .padding(.horizontal, 20)
+//                        
+//                    Grid {
+//                        ForEach(0..<3, id: \.self) { row in
+//                            gridView(row: row, isSign: false, type: type, colorManager: colorManager, offset: 1)
+//                        }
+//                    }
+//                    .padding(.horizontal, 20)
+//                    
+//                    Grid {
+//                        ForEach(0..<3, id: \.self) { row in
+//                            gridView(row: row, isSign: false, type: type, colorManager: colorManager, offset: 7)
+//                        }
+//                    }
+//                    .padding(.horizontal, 20)
+//                }
+//            }
+//            .padding(.horizontal, 60)
+//            .frame(width: geometry.size.width, height: geometry.size.height)
+//        }
+//    }
     
     // MARK: - Functions
     func changeBgColor() -> Color {
@@ -81,22 +107,6 @@ fileprivate extension ContentView {
             return Color("guideBgColor")
         default:
             return Color("clockBgColor")
-        }
-    }
-    
-    func showOnboarding(showOnboarding: Bool) {
-        isOnboardingTextOn = showOnboarding
-    }
-    
-    func stopAlarmSound() {
-        if clockData.isAlarmOn {
-            clockData.isAlarmOn = false
-        }
-        
-        if SoundManager.shared.isAlarmSoundOn {
-            SoundManager.shared.stopSound()
-            clockData.isAlarmOn = false
-            clockData.alarmHour = 0
         }
     }
     
@@ -109,17 +119,18 @@ fileprivate extension ContentView {
         default:
             return AnyView(
                 TabView {
-                    HourView()
-                    MinuteView()
+                    ClockView(type: .hour, colorManager: colorManager)
+                    ClockView(type: .minute, colorManager: colorManager)
                 }
-                    .tabViewStyle(.page(indexDisplayMode: .never))
+                .tabViewStyle(.page(indexDisplayMode: .never))
             )
         }
     }
     
     func displayMainView(geometry: GeometryProxy) -> some View {
         ZStack {
-            if isOnboardingTextOn && !hideOnboarding && verticalSizeClass == .regular {
+            // MARK: - iPhone일 때만 가로 모드 권장
+            if geometry.size.width < 800 && verticalSizeClass == .regular {
                 OnboardingView(isRotated: $isRotated)
             } else {
                 VStack {
@@ -129,9 +140,6 @@ fileprivate extension ContentView {
             }
         }
         .frame(width: geometry.size.width, height: geometry.size.height)
-        .onAppear {
-            showOnboarding(showOnboarding: !hideOnboarding)
-        }
     }
 }
 

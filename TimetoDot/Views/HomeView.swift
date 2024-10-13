@@ -8,6 +8,7 @@ struct HomeView: View {
     @Environment(\.verticalSizeClass) var verticalSizeClass
     @State private var isRotated = false
     
+    private let haptic: HapticManager = HapticManager()
     private let timer = Timer.publish(every: 60, on: .main, in: .default).autoconnect()
     
     var body: some View {
@@ -20,14 +21,22 @@ struct HomeView: View {
     
     // MARK: - Subviews
     private func displayMainView(geometry: GeometryProxy) -> some View {
-        ZStack {
+        let isIpad = geometry.size.width > 800
+        
+        return ZStack {
             // MARK: iPhone일 때만 가로 모드 권장
-            if geometry.size.width < 800 && verticalSizeClass == .regular {
+            if !isIpad && verticalSizeClass == .regular {
                 OnboardingView(isRotated: $isRotated)
             } else {
                 VStack {
                     topBar(geometry: geometry)
-                    displayMainView()
+                        .frame(height: isIpad ? geometry.size.height / 9 : geometry.size.height / 7)
+                        .padding(.horizontal, 30)
+                    
+                    displayClockView()
+                        .frame(height: isIpad ? geometry.size.height / 2 : geometry.size.height / 1.5)
+                        .padding(.top, 40)
+                        .padding(.horizontal, 20)
                 }
             }
         }
@@ -39,21 +48,19 @@ struct HomeView: View {
         
         return HStack {
             if !clockData.isAlarmOn {
-                guideButton(font: isIpad ? .largeTitle: .title2, padding: isIpad ? 20 : 15)
+                guideButton(font: isIpad ? .largeTitle : .title2, padding: isIpad ? 25 : 15, height: isIpad ? 80 : 50)
             }
             
             Spacer()
             
             HStack {
                 if clockData.isAlarmOn { addTimeButton }
-                alarmButton(width: isIpad ? 160 : 100)
+                alarmButton(width: isIpad ? 150 : 100, height: isIpad ? 80 : 50)
             }
         }
-        .padding(.horizontal, 30)
-        .frame(height: isIpad ? geometry.size.height / 9 : geometry.size.height / 7)
     }
     
-    private func displayMainView() -> some View {
+    private func displayClockView() -> some View {
         VStack {
             switch (clockData.isGuideOn, clockData.isAlarmOn) {
             case (true, _):
@@ -64,13 +71,12 @@ struct HomeView: View {
                 return AnyView(ClockView(colorManager: colorManager))
             }
         }
-        .padding(.top, 40)
-        .padding(.horizontal, 20)
     }
     
-    private func guideButton(font: Font, padding: CGFloat) -> some View {
+    private func guideButton(font: Font, padding: CGFloat, height: CGFloat) -> some View {
         Button {
             clockData.toggleGuide()
+            haptic.impact(style: .medium)
         } label: {
             Image(systemName: "questionmark")
                 .font(font)
@@ -88,20 +94,26 @@ struct HomeView: View {
         Button {
             if clockData.alarmHour == 12 { clockData.alarmHour = 1 }
             else { clockData.alarmHour += 1 }
+            
+            haptic.impact(style: .medium)
         } label: {
             Circle()
                 .fill(Color("AccentColor"))
         }
     }
     
-    private func alarmButton(width: CGFloat) -> some View {
-        RoundedRectangle(cornerSize: CGSize(width: 100, height: 100))
-            .fill(clockData.isDetectingLongPress == .active ?
-                  (clockData.isAlarmOn ? Color("alarmColor") : Color("AccentColor")) :
-                    (clockData.completedLongPress ? (clockData.isAlarmOn ? Color("AccentColor") : Color("alarmColor")) : Color("alarmColor")))
-            .gesture(longPress)
-            .animation(.easeInOut, value: isDetectingLongPress)
-            .frame(width: width)
+    private func alarmButton(width: CGFloat, height: CGFloat) -> some View {
+        Button {
+            haptic.impact(style: .medium)
+        } label: {
+            RoundedRectangle(cornerSize: CGSize(width: 100, height: 100))
+                .fill(clockData.isDetectingLongPress == .active ?
+                      (clockData.isAlarmOn ? Color("alarmColor") : Color("AccentColor")) :
+                        (clockData.completedLongPress ? (clockData.isAlarmOn ? Color("AccentColor") : Color("alarmColor")) : Color("alarmColor")))
+                .gesture(longPress)
+                .animation(.easeInOut, value: isDetectingLongPress)
+                .frame(width: width, height: height)
+        }
     }
     
     // MARK: - Functions

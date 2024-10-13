@@ -4,6 +4,8 @@ struct AlarmView: View {
     @EnvironmentObject var clockData: ClockState
     @ObservedObject var colorManager = ColorManager()
     
+    private let haptic: HapticManager = HapticManager()
+    
     var rows = 3
     var columns = 2
     
@@ -29,18 +31,23 @@ struct AlarmView: View {
                     ForEach(0..<columns, id: \.self) { column in
                         let circleNumber = row * self.columns + column + +offset
                         
-                        ZStack {
-                            if isSign {
-                                Circle()
-                                    .foregroundColor(circleNumber == 0 || circleNumber == 2 ? Color("disabledBrailleColor") : Color("alarmColor"))
-                            } else {
-                                Circle()
-                                    .foregroundColor(colorManager.changeAlarmColors(for: circleNumber, alarmHour: clockData.alarmHour))
-                            }
+                        if isSign {
+                            circleButton(isSign: true, circleNumber: circleNumber, hapticStyle: circleNumber == 0 || circleNumber == 2 ? .heavy : .medium, color: circleNumber == 0 || circleNumber == 2 ? Color("disabledBrailleColor") : Color("alarmColor"))
+                        } else {
+                            circleButton(isSign: false, circleNumber: circleNumber, hapticStyle: colorManager.changeAlarmColors(for: circleNumber, alarmHour: clockData.alarmHour) == Color("alarmColor") ? .heavy : .medium, color: colorManager.changeAlarmColors(for: circleNumber, alarmHour: clockData.alarmHour))
                         }
                     }
                 }
             }
+        }
+    }
+    
+    private func circleButton(isSign: Bool, circleNumber: Int, hapticStyle: UIImpactFeedbackGenerator.FeedbackStyle, color: Color) -> some View {
+        Button {
+            haptic.impact(style: hapticStyle)
+        } label: {
+            Circle()
+                .fill(color)
         }
     }
 }

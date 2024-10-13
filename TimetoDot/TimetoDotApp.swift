@@ -4,7 +4,7 @@ import SwiftUI
 struct TimetoDotApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
                 .environmentObject(ClockState())
         }
     }

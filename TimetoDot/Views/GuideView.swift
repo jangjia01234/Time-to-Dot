@@ -22,8 +22,6 @@ struct GuideView: View {
                 }
             }
         }
-        .padding(.horizontal, 40)
-        .padding(.vertical, 20)
         .foregroundColor(.black)
         .background(Color("guideBgColor"))
     }

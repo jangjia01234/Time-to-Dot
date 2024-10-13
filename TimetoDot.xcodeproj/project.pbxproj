@@ -9,10 +9,9 @@
 /* Begin PBXBuildFile section */
 		8D4AC06E2CBBBEA1002F7101 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4AC06D2CBBBEA1002F7101 /* HapticManager.swift */; };
 		8DA737F92C43C486008DE03D /* TimetoDotApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA737F82C43C486008DE03D /* TimetoDotApp.swift */; };
-		8DA737FB2C43C486008DE03D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA737FA2C43C486008DE03D /* ContentView.swift */; };
+		8DA737FB2C43C486008DE03D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA737FA2C43C486008DE03D /* HomeView.swift */; };
 		8DA737FD2C43C487008DE03D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DA737FC2C43C487008DE03D /* Assets.xcassets */; };
 		8DA738002C43C487008DE03D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DA737FF2C43C487008DE03D /* Preview Assets.xcassets */; };
-		8DA7380D2C43C4D1008DE03D /* AlarmButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA7380C2C43C4D1008DE03D /* AlarmButton.swift */; };
 		8DA738112C43C4E6008DE03D /* AlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA738102C43C4E6008DE03D /* AlarmView.swift */; };
 		8DA738172C43C501008DE03D /* GuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA738162C43C501008DE03D /* GuideView.swift */; };
 		8DA738192C43C51D008DE03D /* TextData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA738182C43C51D008DE03D /* TextData.swift */; };
@@ -23,8 +22,6 @@
 		8DD034132CAE54790032295E /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD034122CAE54790032295E /* OnboardingView.swift */; };
 		8DD034152CAE99380032295E /* TimeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD034142CAE99380032295E /* TimeType.swift */; };
 		8DD034182CAE99C90032295E /* AlarmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD034172CAE99C90032295E /* AlarmManager.swift */; };
-		8DD0341A2CAE9C480032295E /* AddTimeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD034192CAE9C480032295E /* AddTimeButton.swift */; };
-		8DD0341C2CAE9C800032295E /* GuideButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD0341B2CAE9C800032295E /* GuideButton.swift */; };
 		8DD0341E2CAEA0220032295E /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD0341D2CAEA0220032295E /* ClockView.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,10 +30,9 @@
 		8DA64C112CA2793300D3DA73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8DA737F52C43C486008DE03D /* TimetoDot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimetoDot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DA737F82C43C486008DE03D /* TimetoDotApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetoDotApp.swift; sourceTree = "<group>"; };
-		8DA737FA2C43C486008DE03D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8DA737FA2C43C486008DE03D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		8DA737FC2C43C487008DE03D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8DA737FF2C43C487008DE03D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		8DA7380C2C43C4D1008DE03D /* AlarmButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmButton.swift; sourceTree = "<group>"; };
 		8DA738102C43C4E6008DE03D /* AlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmView.swift; sourceTree = "<group>"; };
 		8DA738162C43C501008DE03D /* GuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideView.swift; sourceTree = "<group>"; };
 		8DA738182C43C51D008DE03D /* TextData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextData.swift; sourceTree = "<group>"; };
@@ -47,8 +43,6 @@
 		8DD034122CAE54790032295E /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		8DD034142CAE99380032295E /* TimeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeType.swift; sourceTree = "<group>"; };
 		8DD034172CAE99C90032295E /* AlarmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmManager.swift; sourceTree = "<group>"; };
-		8DD034192CAE9C480032295E /* AddTimeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeButton.swift; sourceTree = "<group>"; };
-		8DD0341B2CAE9C800032295E /* GuideButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideButton.swift; sourceTree = "<group>"; };
 		8DD0341D2CAEA0220032295E /* ClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,24 +117,13 @@
 		8DA738082C43C4B4008DE03D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8DA737FA2C43C486008DE03D /* ContentView.swift */,
+				8DA737FA2C43C486008DE03D /* HomeView.swift */,
 				8DD034122CAE54790032295E /* OnboardingView.swift */,
 				8DA738162C43C501008DE03D /* GuideView.swift */,
 				8DA738102C43C4E6008DE03D /* AlarmView.swift */,
-				8DA738092C43C4B9008DE03D /* Components */,
 				8DD0341D2CAEA0220032295E /* ClockView.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		8DA738092C43C4B9008DE03D /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				8DA7380C2C43C4D1008DE03D /* AlarmButton.swift */,
-				8DD034192CAE9C480032295E /* AddTimeButton.swift */,
-				8DD0341B2CAE9C800032295E /* GuideButton.swift */,
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 		8DD034162CAE99930032295E /* Manager */ = {
@@ -229,17 +212,14 @@
 				8DD0341E2CAEA0220032295E /* ClockView.swift in Sources */,
 				8D4AC06E2CBBBEA1002F7101 /* HapticManager.swift in Sources */,
 				8DA7381D2C43C531008DE03D /* SoundManager.swift in Sources */,
-				8DD0341A2CAE9C480032295E /* AddTimeButton.swift in Sources */,
 				8DA738172C43C501008DE03D /* GuideView.swift in Sources */,
-				8DA737FB2C43C486008DE03D /* ContentView.swift in Sources */,
-				8DA7380D2C43C4D1008DE03D /* AlarmButton.swift in Sources */,
+				8DA737FB2C43C486008DE03D /* HomeView.swift in Sources */,
 				8DD034182CAE99C90032295E /* AlarmManager.swift in Sources */,
 				8DD034152CAE99380032295E /* TimeType.swift in Sources */,
 				8DA7381F2C43C547008DE03D /* ColorManager.swift in Sources */,
 				8DA737F92C43C486008DE03D /* TimetoDotApp.swift in Sources */,
 				8DA738112C43C4E6008DE03D /* AlarmView.swift in Sources */,
 				8DA7381B2C43C528008DE03D /* ClockState.swift in Sources */,
-				8DD0341C2CAE9C800032295E /* GuideButton.swift in Sources */,
 				8DD034132CAE54790032295E /* OnboardingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

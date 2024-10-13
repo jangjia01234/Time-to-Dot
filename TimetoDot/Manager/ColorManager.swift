@@ -219,5 +219,38 @@ class ColorManager: ObservableObject {
             return Color("disabledBrailleColor")
         }
     }
+    
+    func changeAlarmColors(for id: Int, alarmHour: Int) -> Color {
+        switch alarmHour {
+        case 0 where id == 2 || id == 3 || id == 4 || id == 8 || id == 9 || id == 10:
+            return Color("alarmColor")
+        case 1 where id == 1:
+            return Color("alarmColor")
+        case 2 where id == 1 || id == 3:
+            return Color("alarmColor")
+        case 3 where id == 1 || id == 2:
+            return Color("alarmColor")
+        case 4 where id == 1 || id == 2 || id == 4:
+            return Color("alarmColor")
+        case 5 where id == 1 || id == 4:
+            return Color("alarmColor")
+        case 6 where id == 1 || id == 2 || id == 3:
+            return Color("alarmColor")
+        case 7 where id == 1 || id == 2 || id == 3 || id == 4:
+            return Color("alarmColor")
+        case 8 where id == 1 || id == 3 || id == 4:
+            return Color("alarmColor")
+        case 9 where id == 2 || id == 3:
+            return Color("alarmColor")
+        case 10 where id == 1 || id == 8 || id == 9 || id == 10:
+            return Color("alarmColor")
+        case 11 where id == 1 || id == 7:
+            return Color("alarmColor")
+        case 12 where id == 1 || id == 7 || id == 9:
+            return Color("alarmColor")
+        default:
+            return Color("disabledBrailleColor")
+        }
+    }
 }
 

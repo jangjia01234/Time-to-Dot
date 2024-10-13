@@ -4,15 +4,13 @@ import SwiftUI
 // -> 아 설마 1시간 단위라서 안울리나?? ㅋㅋ허무..
 
 struct ContentView: View {
+    @ObservedObject var colorManager = ColorManager()
+    @GestureState private var isDetectingLongPress: ClockState.LongPressState = .inactive
     @EnvironmentObject var clockData: ClockState
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @Environment(\.verticalSizeClass) var verticalSizeClass
     
-    @GestureState private var isDetectingLongPress: ClockState.LongPressState = .inactive
-    
     @State private var isRotated = false
-    
-    @ObservedObject var colorManager = ColorManager()
     
     let timer = Timer.publish(every: 60, on: .main, in: .default).autoconnect()
     
@@ -26,8 +24,6 @@ struct ContentView: View {
         }
     }
 }
-
-
 
 fileprivate extension ContentView {
     // MARK: - Components
@@ -119,8 +115,8 @@ fileprivate extension ContentView {
         default:
             return AnyView(
                 TabView {
-                    ClockView(type: .hour, colorManager: colorManager)
-                    ClockView(type: .minute, colorManager: colorManager)
+                    ClockView(colorManager: colorManager, type: .hour)
+                    ClockView(colorManager: colorManager, type: .minute)
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
             )

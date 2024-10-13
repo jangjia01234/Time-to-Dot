@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D4AC06E2CBBBEA1002F7101 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4AC06D2CBBBEA1002F7101 /* HapticManager.swift */; };
 		8DA737F92C43C486008DE03D /* TimetoDotApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA737F82C43C486008DE03D /* TimetoDotApp.swift */; };
 		8DA737FB2C43C486008DE03D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA737FA2C43C486008DE03D /* ContentView.swift */; };
 		8DA737FD2C43C487008DE03D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DA737FC2C43C487008DE03D /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8D4AC06D2CBBBEA1002F7101 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		8DA64C112CA2793300D3DA73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8DA737F52C43C486008DE03D /* TimetoDot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimetoDot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DA737F82C43C486008DE03D /* TimetoDotApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetoDotApp.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				8DA7381E2C43C547008DE03D /* ColorManager.swift */,
 				8DA7381C2C43C531008DE03D /* SoundManager.swift */,
 				8DD034172CAE99C90032295E /* AlarmManager.swift */,
+				8D4AC06D2CBBBEA1002F7101 /* HapticManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 			files = (
 				8DA738192C43C51D008DE03D /* TextData.swift in Sources */,
 				8DD0341E2CAEA0220032295E /* ClockView.swift in Sources */,
+				8D4AC06E2CBBBEA1002F7101 /* HapticManager.swift in Sources */,
 				8DA7381D2C43C531008DE03D /* SoundManager.swift in Sources */,
 				8DD0341A2CAE9C480032295E /* AddTimeButton.swift in Sources */,
 				8DA738172C43C501008DE03D /* GuideView.swift in Sources */,

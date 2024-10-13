@@ -14,14 +14,15 @@ struct GuideButton: View {
         Button {
             clockData.toggleGuide()
         } label: {
-            Circle()
-                .foregroundColor(Color("guideButtonColor"))
-                .overlay(
-                    Image(systemName: "questionmark")
-                        .font(.largeTitle)
-                        .fontWeight(.semibold)
-                        .foregroundColor(.white)
-                )
+            Image(systemName: "questionmark")
+                .font(.largeTitle)
+                .fontWeight(.semibold)
+                .foregroundColor(.white)
+                .padding(20)
+                .background {
+                    Circle()
+                        .fill(Color("guideButtonColor"))
+                }
         }
     }
 }
